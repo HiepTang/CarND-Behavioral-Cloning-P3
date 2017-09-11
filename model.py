@@ -174,5 +174,5 @@ image_paths, angles = augment_data(lines, steerings)
 #angles_ar = np.array(angles)
 #show_hist(angles_ar)
 
-#train_model(image_paths, angles)
+train_model(image_paths, angles)
 
