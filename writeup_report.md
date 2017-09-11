@@ -189,7 +189,8 @@ def train_model(image_paths, angles, batch_size=128,nb_epoch=15):
     model.save('model.h5')
 ```
 I have tried to run the test many times with some different hyper-parameters, model turning and data. The car got some issues when passing the first and second curve after the brige, I tried to capture more data on the curves. Finnaly, I can train a network that can help the car run autonomous on the track one without leaving the road.
-[Video Track 1](video.mp4)
+
+![Video Track 1](video.mp4)
 ### Data collection
 I realize that the most important factor for this project is data. I have tried to record data by mouse following the recommendation from Udacity howerver I am not a good mouse gamer. I don't have a joystick, so I have just tried my best with the keyboard.
 I have tried to train with Udacity sample data and see it's a good resource. The car can run autonomous like a snake almost the track 1 with the approariata data aurmentaton, preprocessing and model architecuture, training.
@@ -203,9 +204,9 @@ I have tried to combine some different datasets in order to choose the best resu
 ### Data augmentation and preprocessing
 I have used the left, center and right camera images with the correction angle is 0.24 in order to increase the dataset. 
 From the distribution of training dataset as show in image below, I see the data is very unbalanced with a lot of angle = 0 data because the can ussaly run straight forward on the track 1.
-![Distribution of data](beforeaugment.png)
+![Distribution of data](images/beforeaugment.png)
 So, I deciced to only flip the image when it has the angle above 0.05. Here is the distribution of data after augmentaion.
-![Distribution of augmented data](afteraugment.png)
+![Distribution of augmented data](images/afteraugment.png)
 I also normalize image and crop image as recommended before.
 ### Training process
 I used a adam optimizer with the learning rate is not specified. I also applied the early stopping and model checkpoint with 15 epoches in order to get the best model training result. Here is the final and best training result
@@ -233,5 +234,7 @@ Epoch 10/15
 ```
 ## Result
 The car can run smoothly without leaving the road on track 1.
-[Track 1 Video](video.mp4)
+
+![Track 1 Video](video.mp4)
+
 However, it could not run so far on track 2. I think the root cause is my collected data not good enough. I will get the joystick in order to record better data and try again in the future.
